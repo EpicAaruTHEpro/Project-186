@@ -6,9 +6,41 @@
   </head>
   <body>
     <a-scene>
-      <a-camera position = "0 0 13"></a-camera>
-      <a-entity position="0 1 0 " spe-particles=" color: blue, green, brown, black; distribution: disc; randomize-velocity: true; randomize-size: true; randomize-drag: true; randomize-color: true; radius: 3; particle-count: 400; velocity: 1; velocity-spread: 30; drag: 0; max-age: 1; duration: -5, blending: subtractive; active-multiplier: 100; size: 3, 8, 9, 0"> </a-entity>
-      <a-sky color="blue"></a-sky>
-    </a-scene>
+
+      <a-assets>
+        <img id="texture" src="texture.jpg">
+      </a-assets>
+
+      <a-camera position = "0 10 13"></a-camera>
+      <a-entity position="0 2 -4"
+      spe-particles="
+      texture: images/particles/star.png;
+      color: #FF0000, #FFFF00, #00FFFF, #FF00FF;
+      distribution: BOX;
+      opacity: 1,1,1,0;
+      size: 15;
+      velocity: 0 0.5 0;
+      velocity-spread: 3 0 3; 
+      blending: normal;
+      particle-count: 100;
+      angle: 0, 6.28;
+      maxAge: 3; ">
+    </a-entity>
+
+    <a-cylinder position="0 15 -4" radius="0.6" height="0.6" color="gray">
+        <a-entity
+            spe-particles="
+            texture: images/particles/snowflake.png; 
+            color: #0000FF, #00FFFF, #FFFFFF; 
+            opacity: 1, 1, 0;
+            size: 6, 6, 0;
+            velocity: 0 4 0; 
+            velocity-spread: 12 0 12; 
+            acceleration: 0 -6 0;
+            particle-count: 1000;">
+        </a-entity>
+    </a-cylinder>
+    <a-sky src="#texture"></a-sky>
+  </a-scene>
   </body>
 </html>
